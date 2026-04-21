@@ -1,58 +1,202 @@
 {
-    "Title": "Campus Life on the West Side",
-    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "Title": "The Game of a Lifetime", 
+    "Credits": "Created by Devang Raina",
+    "InitialLocation": "Center Field",
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+        "Center Field": {
+            "Body": "You look around, players charging at you. Your team is down 1-0 in the Champions League Final with 10 minutes to go. What do you do?",
             "Choices": [
                 {
-                    "Text": "South",
-                    "Target": "Porter"
-                }
-            ]
-        },
-        "Porter": {
-            "Body": "This is Porter College, the trees are nice here too.",
-            "Choices": [
+                    "Text": "Coach's Advice",
+                    "Target": "Coach"
+                },
+
                 {
-                    "Text": "North",
-                    "Target": "Kresge"
+                    "Text": "Pass to Right Midfield",
+                    "Target": "Right Midfield"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Rachel Carson"
+                    "Text": "Pass to Left Midfield",
+                    "Target": "Left Midfield"
                 }
             ]
         },
-        "Rachel Carson": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
+        "Coach": {
+            "Advice": [
+                "The key to winning is patience, keep passing.",
+                "Switch your points of attack!",
+                "Think methodically, don't rush to the final position.",
+                "Use all your options avalible, it is a team game after all!"
+            ],
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Porter"
-                },
-                {
-                    "Text": "South",
-                    "Target": "Oakes"
+                    "Text": "Back to the Game",
+                    "Target": "Center Field"
                 }
             ]
         },
-        "Oakes": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
+        "Right Midfield": {
+            "Body": "You recieve the ball with a player running at you from the center field. You only have a few seconds before the ball is stolen from you. Act quick!",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Rachel Carson"
+                    "Text": "Pass Back",
+                    "Target": "Center Field"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Beyond"
+                    "Text": "Pass to Right Back",
+                    "Target": "Right Back"
+                },
+                {
+                    "Text": "Pass to Center Back",
+                    "Target": "Center Back"
+                },
+                {
+                    "Text": "Play an outside ball moving forward",
+                    "Target": "Right Wing"
                 }
             ]
         },
-        "Beyond": {
-            "Body": "Grass, don't forget to check for ticks!"
+        "Right Wing": {
+            "Body": "You speed through the wing, no one can catch you, time to send in a cross. Use all the force you can... not too much though.",
+            "NeedsKey": true,
+            "GameOver": "You sent the pass too far and now it is out of bounds. Restart the game.",
+            "GameOverTarget": "Center Field",
+            
+            "Choices": [
+                {
+                    "Text": "Cross the Ball",
+                    "Target": "StrikerOne"
+                }
+            ]
+        },
+        "Right Back": {
+            "Body": "Okay, nice reset, scan for options but don't wait too long, the pressure is slowly creeping up.",
+            "Choices": [
+                {
+                    "Text": "Pass to Right Midfield",
+                    "Target": "Right Midfield"
+                },
+                {
+                    "Text": "Cycle the Ball around to Center Back",
+                    "Target": "Center Back"
+                },
+                {
+                    "Text": "Send the ball up the wing",
+                    "Target": "Right Wing"
+                }
+            ]
+        },
+        "Center Back": {
+            "Body": "Cool, calm, and collected. You can see the whole pitch. What is your next move?",
+            "Choices": [
+                {
+                    "Text": "Pass to Left Back",
+                    "Target": "Left Back"
+                },
+                {
+                    "Text": "Pass to Right Midfield",
+                    "Target": "Right Midfield"
+                },
+                {
+                    "Text": "Pass Back to Goalie",
+                    "Target": "Goalie"
+                }
+            ]
+        },
+        "Left Back": {
+            "Body": "Oh! Someone misjudged the accuracy of their pass. Great job moving the ball around but it looks like it is out of bounds now...",
+            "Choices": [
+                {
+                    "Text": "Throw In",
+                    "Target": "Throw In"
+                }
+            ]
+        },
+        "Throw In": {
+            "Body": "Tha ball has gone out, but suddenly you hear your coach scream. SWITCH THE POINT OF ATTACK. What does he mean?",
+            "Choices": [
+                {
+                    "Text": "Short throw to Left Midfield",
+                    "Target": "Left Midfield"
+                },
+                {
+                    "Text": "Long throw to Right Wing..?",
+                    "Target": "Right Wing",
+                    "hasKey": "longThrowKey"
+                }
+            ]
+        },
+        "Left Midfield": {
+            "Body": "The pace is picking up, only a few minutes left, lets try and score quickly eh?",
+            "Choices": [
+                {
+                    "Text": "Back to Center Field",
+                    "Target": "Center Field"
+                }
+            ]
+        },
+
+        "StrikerOne": {
+            "Body": "That cross came in fast, put the ball in the back of the net and you'll solidify yourself in history.",
+            "Choices": [
+                {
+                    "Text": "Power Shot",
+                    "Target": "Score"
+                },
+                {
+                    "Text": "Pass to the second attacker.",
+                    "Target": "StrikerTwo"
+
+                },
+                {
+                    "Text": "Skill move past the goalie.",
+                    "Target": "Score"
+                }
+            ]
+        },
+        "StrikerTwo": {
+            "Body": "The ball lands at your feet, all of the team's trust lying on your shoulders. Score a goal and make history.",
+            "Choices": [
+                {
+                    "Text": "Pass Back to the first attacker.",
+                    "Target": "StrikerOne"
+                },
+                {
+                    "Text": "Curve Shot into the top right corner.",
+                    "Target": "Score"
+
+                }
+            ]
+        },
+        "Score": {
+            "Body": "GOALASO!!!! What a shot, the crowd errupts, your teammates chase you to the corner flag. You have given your team a second chance to win, but for now all that matters is YOU scored.",
+            "Choices": [
+                {
+                    "Text": "Play again",
+                    "Target": "Center Field"
+                }
+            ]
+        },
+        "Goalie": {
+            "Body": "Back to the goalie, hmmm, interesting choice but be careful, one slip up and an own goal is bound to happen.",
+            "Choices": [
+                {
+                    "Text": "Ping the ball to midfield",
+                    "Target": "Center Field"
+
+                },
+                {
+                    "Text": "Pass the ball back to defense.",
+                    "Target": "Center Back"
+
+                },
+                {
+                    "Text": "Send a LONGGG ball upfield.",
+                    "Target": "Right Wing"
+                }
+            ]
         }
+        
+
     }
 }
